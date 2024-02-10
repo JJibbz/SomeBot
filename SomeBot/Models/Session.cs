@@ -8,6 +8,6 @@ namespace SomeBot.Models
 {
     public class Session
     {
-        public string Function {  get; set; }   
+        public string Function {  get; set; }     
     }
 }

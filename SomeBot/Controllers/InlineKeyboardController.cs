@@ -7,6 +7,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using SomeBot.Services;
+using SomeBot.Extensions;
 
 namespace SomeBot.Controllers
 {
@@ -36,6 +37,21 @@ namespace SomeBot.Controllers
             };
 
             await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id, $"<b>Выбрана функция - {functionText}.{Environment.NewLine}</b>" + $"{Environment.NewLine}Можно поменять в главном меню.", cancellationToken: ct, parseMode: ParseMode.Html);
+
+            if (callbackQuery.Data == "Symb" )
+            {
+                Console.WriteLine("Выбрана функция: Подсчёт символов.");
+
+                await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id, "Введите любое сообщение и бот подсчитает количество символов.", cancellationToken: ct);
+            }
+
+            if (callbackQuery.Data == "Sum")
+            {
+                Console.WriteLine("Выбрана функция: Сумма чисел.");
+
+                await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id, "Введите несколько чисел через пробел и бот подсчитает их сумму.");
+
+            }
         }
     }
         

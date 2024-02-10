@@ -22,7 +22,7 @@ namespace SomeBot.Services
             if (_sessions.ContainsKey(chatId))
                 return _sessions[chatId];
 
-            var newSession = new Session() { Function = "" };
+            var newSession = new Session() { Function = null };
             _sessions.TryAdd(chatId, newSession);
             return newSession;
         }
